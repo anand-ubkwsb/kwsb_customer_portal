@@ -1,0 +1,36 @@
+export interface CurrentBill {
+  CONS_NO?: string;
+  BILL_PERIOD?: string;
+  ISSU_DT?: string;
+  DUE_DT?: string;
+  WATER_CURRENT?: string;
+  WATER_ARREAR?: string;
+  SEWWRAGE_ARREAR?: string;
+  CONSERVANCY_ARREAR?: string;
+  FIRE_ARREAR?: string;
+  BANK_CHARGES?: string;
+  PAYABLE_DUE_DATE?: string;
+  WATER_SURCHARGE?: string;
+  PAYABLE_AFTER_DATE?: string;
+  BAR_CODE?: string;
+  BULK_CONSUMER_ID?: string;
+  BULK_CONSUMER_NAME?: string;
+  ADDRESS_1?: string;
+  ADDRESS_2?: string;
+  WATER_FIRE_CURRENT?: string;
+  WATER_FIRE_ARREARS?: string;
+  WATER_FIRE_TOTAL?: string;
+  SEWERAGE_CONSERVANCY_CURRENT?: string;
+  SEWERAGE_CONSERVANCY_ARREARS?: string;
+  SEWERAGE_CONSERVANCY_TOTAL?: string;
+  NET_AMOUNT?: string;
+  SURCHARGE_AMOUNT?: string;
+  GROSS_AMOUNT?: string;
+  CONSUMPTION?: string;
+  CONNECTION_SIZE?: string;
+  WATER_RATE?: string;
+  meter_type_id?: string;
+  connection_source?: string;
+  TOWN_NAME?: string;
+  SECTOR_NAME?: string;
+}

@@ -1,0 +1,80 @@
+<div class="bg-light min-vh-100 d-flex flex-row">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-card-group>
+        <c-card class="p-4">
+          <c-card-body>
+            <form cForm [formGroup]="addConsumerParam" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: column; align-items: center;">
+              <c-col sm="6">
+                <div class="form-group py-2">
+                  <label for="cons_type">Consumer Type</label>
+                  <select
+                  [class.is-invalid]="
+                  addConsumerParam.get('cons_type').errors &&
+                  addConsumerParam.get('cons_type').touched"
+                    #selectType
+                    id="cons_type"
+                    required
+                    aria-label="Default select example"
+                    cSelect
+                    formControlName="cons_type"
+                    name="cons_type"
+                    class="selector"
+                  >
+                    <option value="" selected disabled hidden>
+                      Select Type
+                    </option>
+                    <option value="retail">Retail</option>
+                    <option value="bulk">Bulk</option>
+                  </select>
+                  <div class="invalid-feedback" *ngIf="addConsumerParam.get('cons_type').hasError('required')" > 
+                    Please Select Consumer Type
+                </div>
+                </div>
+              </c-col>
+              <c-col sm="6">
+                <div class="form-group py-2">
+                  <label for="cons_no">Consumer Number</label>
+                  <input
+                  [class.is-invalid]="addConsumerParam.get('cons_no').errors && addConsumerParam.get('cons_no').touched "
+                  required
+                    autoComplete="cons_no"
+                    cFormControl
+                    id="cons_no"
+                    formControlName="cons_no"
+                    name="cons_no"
+                    type="text"
+                    required
+                  />
+                  <div class="invalid-feedback" *ngIf="addConsumerParam.get('cons_no').hasError('required')" > 
+                    Please Enter Consumer Number
+                </div>
+                </div>
+              </c-col>
+              <!-- <c-col sm="6">
+                <div class="form-group py-2">
+                  <label for="consumer_email">Consumer Email</label>
+                  <input
+                    autoComplete="consumer_email"
+                    cFormControl
+                    id="consumer_email"
+                    formControlName="consumer_email"
+                    name="consumer_email"
+                    type="email"
+                    required
+                  />
+                </div>
+              </c-col> -->
+              <c-col sm="6">
+                    <button [disabled]="!addConsumerParam.valid"  class="btn btn-primary primary_color w-100 my-2" type="submit">Submit</button>
+              </c-col>
+            </form>
+            <div>
+              <h4 class="errorMessage">{{error}}</h4>
+            </div>
+          </c-card-body>
+        </c-card>
+      </c-card-group>
+    </c-row>
+  </c-container>
+</div>

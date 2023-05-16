@@ -1,0 +1,155 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center py-3">
+  <c-container>
+    <div style="display: flex; flex-direction: column; align-items: center; margin: 5vh;">
+      <img src="../../../../assets/logo.png" />
+    </div>
+    <h1 style="font-size: 5vh; font-weight: bold; text-align: center; margin-bottom: 5vh;" >Karachi Water & Sewerage Board</h1>
+    <c-row class="justify-content-center">
+      <c-col lg="7" md="9" xl="6">
+        <c-card class="mx-4">
+          <c-card-body class="p-4">
+            <form cForm [formGroup]="registerForm" (ngSubmit)="Register()">
+              <h1>Register</h1>
+              <p class="text-medium-emphasis">Create your account</p>
+              <div class="mb-3">
+                <!-- <span cInputGroupText class="selector_icon">
+                  <svg cIcon name="cilUser"></svg>
+                </span> -->
+                <select [class.is-invalid]="registerForm.get('cons_type').errors && registerForm.get('cons_type').touched "  required aria-label="Default select example" cSelect formControlName="cons_type" name="cons_type" class="selector">
+                  <option value="" selected disabled hidden>Select Consumer Type</option>
+                  <option value="retail">Retail</option>
+                  <option value="bulk">Bulk</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="registerForm.get('cons_type').hasError('required')" > 
+                  Please Select Consumer Type
+              </div>
+              </div>
+              <c-input-group class="mb-3">
+                <!-- <span cInputGroupText>
+                  <svg cIcon name="cilUser"></svg>
+                </span> -->
+                <input  [class.is-invalid]="registerForm.get('first_name').errors && registerForm.get('first_name').touched " required autoComplete="first_name" cFormControl formControlName="first_name" name="first_name"  placeholder="First Name" />
+                <div class="invalid-feedback" *ngIf="registerForm.get('first_name').hasError('required')" > 
+                  Please Enter First Name
+              </div>
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <!-- <span cInputGroupText>
+                  <svg cIcon name="cilUser"></svg>
+                </span> -->
+                <input [class.is-invalid]="registerForm.get('last_name').errors && registerForm.get('last_name').touched " required autoComplete="last_name" cFormControl formControlName="last_name" name="last_name"  placeholder="Last Name" />
+                <div class="invalid-feedback" *ngIf="registerForm.get('last_name').hasError('required')" > 
+                  Please Enter Last Name
+              </div>
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <!-- <span cInputGroupText>@</span> -->
+                <input [class.is-invalid]="registerForm.get('email').errors && registerForm.get('email').touched " required autoComplete="email" cFormControl formControlName="email" name="email"  placeholder="Email" />
+                <div class="invalid-feedback" *ngIf="registerForm.get('email').hasError('required')" > 
+                  Please Enter Email
+              </div>
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <!-- <span cInputGroupText>@</span> -->
+                <input [class.is-invalid]="registerForm.get('mobile_no').errors && registerForm.get('mobile_no').touched " maxlength="11" required autoComplete="mobile_no" cFormControl formControlName="mobile_no" name="mobile_no"  placeholder="Mobile Number" />
+                <div class="invalid-feedback" *ngIf="registerForm.get('mobile_no').hasError('required')" > 
+                  Please Enter Mobile Number
+              </div>
+              <div class="invalid-feedback" *ngIf="registerForm.get('mobile_no').hasError('minlength')" > 
+                Please Enter Correct Mobile Number
+            </div> 
+              <div class="invalid-feedback" *ngIf="registerForm.get('mobile_no').hasError('maxlength')" > 
+                Please Enter Correct Mobile Number
+            </div> 
+            </c-input-group>
+              <c-input-group class="mb-3">
+                <!-- <span cInputGroupText>@</span> -->
+                <input [class.is-invalid]="registerForm.get('address').errors && registerForm.get('address').touched " required autoComplete="address" cFormControl formControlName="address" name="address"  placeholder="Address" />
+                <div class="invalid-feedback" *ngIf="registerForm.get('address').hasError('required')" > 
+                  Please Enter Address
+              </div>
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <!-- <span cInputGroupText>
+                  <svg cIcon name="cilLockLocked"></svg>
+                </span> -->
+                <input [class.is-invalid]="registerForm.get('password').errors && registerForm.get('password').touched " required autoComplete="password" cFormControl formControlName="password" name="password"  placeholder="Password" type="password" />
+                <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('required')" > 
+                  Please Enter Password
+              </div>
+              <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('minlength')" > 
+                  Please Enter minLength is (8)
+              </div>
+              <!-- <div class="invalid-feedback" *ngIf="registerForm.get('password').hasError('maxlength')" > 
+                  Please Enter maxLength is (10)
+              </div> -->
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <!-- <span cInputGroupText>
+                  <svg cIcon name="cilLockLocked"></svg>
+                </span> -->
+                <input [class.is-invalid]="registerForm.get('confirmPassword').errors && registerForm.get('confirmPassword').touched " required autoComplete="confirmPassword" cFormControl formControlName="confirmPassword" name="confirmPassword"  placeholder="Confirm password" type="password" />
+                <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword').hasError('required')" > 
+                  Please Enter Confirm Password
+              </div>
+              <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword').hasError('isMatching')" > 
+                  Password Does not match
+              </div>
+              </c-input-group>
+              <c-input-group class="mb-3">
+                <!-- <span cInputGroupText>@</span> -->
+                <input [class.is-invalid]="registerForm.get('pin_code').errors && registerForm.get('pin_code').touched " maxlength="4" required autoComplete="pin_code" cFormControl formControlName="pin_code" name="pin_code"  placeholder="Pin Code" />
+                <div class="invalid-feedback" *ngIf="registerForm.get('pin_code').hasError('required')" > 
+                  Please Enter Pin Code
+              </div>
+              <div class="invalid-feedback" *ngIf="registerForm.get('pin_code').hasError('minlength')" > 
+                Please Enter 4 Digit Code
+            </div>
+            <div class="invalid-feedback" *ngIf="registerForm.get('pin_code').hasError('maxlength')" > 
+                Please Enter 4 Digit Code
+            </div> 
+            </c-input-group>
+              <c-input-group class="mb-3">
+                <!-- <span cInputGroupText>@</span> -->
+                <input [class.is-invalid]="registerForm.get('cnic_no').errors && registerForm.get('cnic_no').touched " maxlength="13" required autoComplete="cnic_no" cFormControl formControlName="cnic_no" name="cnic_no"  placeholder="CNIC Number" />
+                <div class="invalid-feedback" *ngIf="registerForm.get('cnic_no').hasError('required')" > 
+                  Please Enter CINC Number
+              </div>
+              <div class="invalid-feedback" *ngIf="registerForm.get('cnic_no').hasError('minlength')" > 
+                Please Enter Correct CNIC Number
+            </div>
+            <div class="invalid-feedback" *ngIf="registerForm.get('cnic_no').hasError('maxlength')" > 
+                Please Enter Correct CNIC Number
+            </div> 
+            </c-input-group>
+              <c-input-group class="mb-3">
+                <!-- <span cInputGroupText>@</span> -->
+                <input [class.is-invalid]="registerForm.get('cons_no').errors && registerForm.get('cons_no').touched " maxlength="11" required autoComplete="cons_no" cFormControl formControlName="cons_no" name="cons_no" placeholder="Consumer Number" />
+                <div class="invalid-feedback" *ngIf="registerForm.get('cons_no').hasError('required')" > 
+                  Please Enter Consumer Number
+              </div>
+              <div class="invalid-feedback" *ngIf="registerForm.get('cons_no').hasError('minlength')" > 
+                Please Enter Correct Consumer Number
+            </div>
+            <div class="invalid-feedback" *ngIf="registerForm.get('cons_no').hasError('maxlength')" > 
+                Please Enter Correct Consumer Number
+            </div> 
+            </c-input-group>
+              <div class="d-grid">
+                <button type="submit" [disabled]="!registerForm.valid"  cButton class="primary_color">Create Account</button>
+              </div>
+              <div class="secondary_button_container" >
+                <button routerLink="/login" cButton class="px-4 secondary_button" color="link">
+                  Back to Login
+                </button>
+              </div>
+              <div>
+                <h4 class="errorMessage">{{error}}</h4>
+              </div>
+            </form>
+          </c-card-body>
+        </c-card>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>

@@ -1,0 +1,262 @@
+<div class="bg-light min-vh-100 d-flex flex-row">
+  <c-container>
+    <c-row class="justify-content-center">
+          <c-card-group>
+            <c-card class="p-4">
+                <c-card-body>
+                  <form cForm  [formGroup]="currentbillParam" (ngSubmit)="GetCurrentBill()">
+                    <c-row >
+                        <c-col sm="5" >
+                            <div class="form-group">
+                                <label for="cons_type">Consumer Type</label>
+                                <select [class.is-invalid]="
+                                currentbillParam.get('cons_type').errors &&
+                                currentbillParam.get('cons_type').touched" #selectType  id="cons_type"  required aria-label="Default select example" cSelect formControlName="cons_type" name="cons_type" class="selector">
+                                    <option value="" selected disabled hidden>Select Type</option>
+                                    <option value="retail" >Retail</option>
+                                    <option value="bulk" >Bulk</option>
+                                  </select>
+                                  <div class="invalid-feedback" *ngIf="currentbillParam.get('cons_type').hasError('required')" > 
+                                    Please Select Consumer Type
+                                </div>
+                              </div>
+                        </c-col>
+                        <c-col sm="5">
+                            <div class="form-group" >
+                                <label for="cons_no">Consumer Number</label>
+                                <input
+                                [class.is-invalid]="currentbillParam.get('cons_no').errors && currentbillParam.get('cons_no').touched "
+                                required
+                                autoComplete="cons_no"
+                                cFormControl
+                                id="cons_no"
+                                formControlName="cons_no"
+                                name="cons_no"
+                                type="text"
+                                required
+                              />
+                              <div class="invalid-feedback" *ngIf="currentbillParam.get('cons_no').hasError('required')" > 
+                                Please Enter Consumer Number
+                            </div>
+                            </div>
+                        </c-col>
+                        <c-col sm="2">
+                            <div class="form-group my-3" style="display: flex; flex-direction: row; justify-content: center; align-items: center;" >
+                                <button  class="btn btn-primary primary_color" type="submit">Submit</button>
+                            </div>
+                            <div class="form-group my-3" style="display: flex; flex-direction: row; justify-content: center; align-items: center;" >
+                                <button  class="btn btn-primary primary_color" type="button" (click)="downloadBill()">Download Bill</button>
+                            </div>
+                        </c-col>
+                </c-row>
+            </form>
+                    <div>
+                        <ng-template [ngIf]="selectType.value === ''">
+                            <div class="py-2">
+                            <label for="inputBillPeriod">Bill Period</label>
+                            <input readonly type="text" class="form-control" id="inputBillPeriod" >
+                        </div>
+                        </ng-template>
+                            <ng-template  [ngIf]="selectType.value === 'retail'">
+                                <div class="py-2">
+                                <label for="inputBillPeriod">Bill Period</label>
+                                <input readonly type="text" class="form-control" id="inputBillPeriod" [value]="currentbill.BILL_PERIOD">
+                            </div>
+                            </ng-template>
+                            <ng-template [ngIf]="selectType.value === 'bulk'">
+                                <div class="py-2">
+                                <label for="inputBillPeriod">Bill Period</label>
+                                <input readonly type="text" class="form-control" id="inputBillPeriod" [value]="currentbill.BILL_PERIOD">
+                                </div>
+                            </ng-template>
+                        </div>
+                        <ng-template [ngIf]="selectType.value === 'bulk'">
+                            <div class="py-2" >
+                            <label for="inputWater">Water Rate</label>
+                            <input readonly type="text" class="form-control" id="inputWater" [value]="currentbill.WATER_RATE">
+                        </div>
+                        </ng-template>
+                    <div >
+                        <ng-template  [ngIf]="selectType.value === ''">
+                            <div class="py-2" >
+                            <label for="inputWater">Water</label>
+                            <input readonly type="text" class="form-control" id="inputWater" >
+                        </div>
+                        </ng-template>
+                        <ng-template  [ngIf]="selectType.value === 'retail'">
+                            <div class="py-2" >
+                        <label for="inputWater">Water</label>
+                        <input readonly type="text" class="form-control" id="inputWater" [value]="currentbill.WATER_CURRENT">
+                    </div>
+                    </ng-template>
+                    <ng-template  [ngIf]="selectType.value === 'bulk'">
+                        <div class="py-2" >
+                        <label for="inputWater">Water</label>
+                        <input readonly type="text" class="form-control" id="inputWater" [value]="currentbill.WATER_FIRE_TOTAL">
+                        </div>
+                    </ng-template>
+                    </div>
+                    <div >
+                        <ng-template [ngIf]="selectType.value === ''">
+                            <div class="py-2" >
+                            <label for="inputSewerage">Sewerage</label>
+                            <input readonly type="text" class="form-control" id="inputSewerage" >
+                            </div>
+                        </ng-template>
+                        <ng-template [ngIf]="selectType.value === 'retail'">
+                            <div class="py-2" >
+                            <label for="inputSewerage">Sewerage</label>
+                            <input readonly type="text" class="form-control" id="inputSewerage" [value]="currentbill.SEWWRAGE_ARREAR">
+                        </div>
+                        </ng-template>
+                        <ng-template [ngIf]="selectType.value === 'bulk'">
+                            <div class="py-2" >
+                            <label for="inputSewerage">Sewerage</label>
+                            <input readonly type="text" class="form-control" id="inputSewerage" [value]="currentbill.SEWERAGE_CONSERVANCY_TOTAL">
+                        </div>
+                        </ng-template>
+                    </div>
+                    <div>
+                        <ng-template  [ngIf]="selectType.value === ''">
+                            <div class="py-2" >
+                            <label for="inputConservancy">Conservancy</label>
+                            <input readonly type="text" class="form-control" id="inputConservancy" >
+                        </div>
+                        </ng-template>
+                        <ng-template [ngIf]="selectType.value === 'retail'">
+                            <div class="py-2" >
+                            <label for="inputConservancy">Conservancy</label>
+                            <input readonly type="text" class="form-control" id="inputConservancy" [value]="currentbill.CONSERVANCY_ARREAR">
+                        </div>
+                        </ng-template>
+                    </div>
+                    <div>
+                    <ng-template  [ngIf]="selectType.value === ''">
+                            <div class="py-2">
+                            <label for="inputFire">Fire</label>
+                            <input readonly type="text" class="form-control" id="inputFire" >
+                        </div>
+                        </ng-template>
+                        <ng-template [ngIf]="selectType.value === 'retail'">
+                            <div class="py-2">
+                            <label for="inputFire">Fire</label>
+                            <input readonly type="text" class="form-control" id="inputFire" [value]="currentbill.FIRE_ARREAR">
+                        </div>
+                        </ng-template>
+                    </div>
+                    <div >
+                        <ng-template [ngIf]="selectType.value === ''">
+                            <div class="py-2" >
+                            <label for="inputBankCharges">Bank Charges</label>
+                            <input readonly type="text" class="form-control" id="inputBankCharges" >
+                        </div>
+                        </ng-template>
+                        <ng-template [ngIf]="selectType.value === 'retail'">
+                            <div class="py-2" >
+                            <label for="inputBankCharges">Bank Charges</label>
+                            <input readonly type="text" class="form-control" id="inputBankCharges" [value]="currentbill.BANK_CHARGES">
+                        </div>
+                        </ng-template>
+                        <ng-template [ngIf]="selectType.value === 'bulk'">
+                            <div class="py-2" >
+                            <label for="inputBankCharges">Bank Charges</label>
+                            <input readonly type="text" class="form-control" id="inputBankCharges" [value]="currentbill.BANK_CHARGE">
+                        </div>
+                        </ng-template>
+                    </div>
+                    <div >
+                        <ng-template [ngIf]="selectType.value === 'bulk'">
+                            <div class="py-2" >
+                        <label for="inputWithinDueDate">Net Amount</label>
+                        <input readonly type="text" class="form-control" id="inputWithinDueDate" [value]="currentbill.NET_AMOUNT">
+                    </div>
+                        </ng-template>
+                    </div>
+                    <div>
+                        <ng-template  [ngIf]="selectType.value === ''">
+                            <div class="py-2" >
+                            <label for="inputWithinDueDate">Within Due Date</label>
+                            <input readonly type="text" class="form-control" id="inputWithinDueDate" >
+                        </div>
+                        </ng-template>
+                        <ng-template [ngIf]="selectType.value === 'retail'">
+                            <div class="py-2" >
+                            <label for="inputWithinDueDate">Within Due Date</label>
+                            <input readonly type="text" class="form-control" id="inputWithinDueDate" [value]="currentbill.PAYABLE_DUE_DATE">
+                        </div>
+                        </ng-template>
+                    </div>
+                    <div >
+                        <ng-template [ngIf]="selectType.value === ''">
+                            <div class="py-2" >
+                            <label for="inputSurcharge">Surcharge</label>
+                            <input readonly type="text" class="form-control" id="inputSurcharge">
+                        </div>
+                        </ng-template>
+                        <ng-template [ngIf]="selectType.value === 'retail'">
+                            <div class="py-2" >
+                            <label for="inputSurcharge">Surcharge</label>
+                            <input readonly type="text" class="form-control" id="inputSurcharge" [value]="currentbill.WATER_SURCHARGE"> 
+                        </div>
+                        </ng-template>
+                        <ng-template [ngIf]="selectType.value === 'bulk'">
+                            <div class="py-2" >
+                            <label for="inputSurcharge">Surcharge</label>
+                            <input readonly type="text" class="form-control" id="inputSurcharge" [value]="currentbill.SURCHARGE_AMOUNT"> 
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div >
+                        <ng-template [ngIf]="selectType.value === 'bulk'">
+                            <div class="py-2" >
+                            <label for="inputAfterDueDate">Gross Amount</label>
+                            <input readonly type="text" class="form-control" id="inputAfterDueDate" [value]="currentbill.GROSS_AMOUNT">
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div >
+                        <ng-template  [ngIf]="selectType.value === ''">
+                            <div class="py-2" >
+                            <label for="inputAfterDueDate">After Due Date</label>
+                            <input readonly type="text" class="form-control" id="inputAfterDueDate" > 
+                            </div>               
+                        </ng-template>
+                        <ng-template  [ngIf]="selectType.value === 'retail'">
+                            <div class="py-2" >
+                            <label for="inputAfterDueDate">After Due Date</label>
+                            <input readonly type="text" class="form-control" id="inputAfterDueDate" [value]="currentbill.PAYABLE_AFTER_DATE">
+                        </div>
+                        </ng-template>
+                    </div>
+                    <div >
+                        <ng-template [ngIf]="selectType.value === 'bulk'">
+                            <div class="py-2" >
+                            <label for="inputDueDate">Consumption</label>
+                            <input readonly type="text" class="form-control" id="inputDueDate" [value]="currentbill.CONSUMPTION">
+                        </div>
+                        </ng-template>
+                    </div>
+                    <div >
+                        <ng-template [ngIf]="selectType.value === ''">
+                            <div class="py-2" >
+                            <label for="inputDueDate">Due Date</label>
+                            <input readonly type="text" class="form-control" id="inputDueDate" >
+                            </div>
+                        </ng-template>
+                        <ng-template  [ngIf]="selectType.value === 'retail'">
+                            <div class="py-2" >
+                            <label for="inputDueDate">Due Date</label>
+                            <input readonly type="text" class="form-control" id="inputDueDate" [value]="currentbill.DUE_DT">   
+                            </div>
+                        </ng-template>
+                        
+                        <div>
+                            <h4 class="errorMessage">{{error}}</h4>
+                          </div>
+                    </div>
+                </c-card-body>
+                </c-card>
+        </c-card-group>
+    </c-row>    
+        </c-container>
+</div>

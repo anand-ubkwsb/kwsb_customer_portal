@@ -1,0 +1,39 @@
+.primary_color {
+  background-color: #0f69fa;
+  border: 0px;
+}
+
+.secondary_color {
+  background-color: #d8dbe0;
+}
+
+.secondary_button {
+  color: black;
+  border: 0px;
+}
+
+.secondary_button_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.form-control:focus {
+  border-color: gray;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.form-select:focus {
+  border-color: gray;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.errorMessage{
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}

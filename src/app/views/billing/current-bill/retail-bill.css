@@ -1,0 +1,192 @@
+*{
+    font-family: Montserrat;
+    margin: 0;
+    padding: 0;
+    
+  }
+  body {
+    display: flex; 
+    align-items: center;
+    font-family: Montserrat;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
+.ft110 {
+  font-size: 14px;
+  /* font-family: Times; */
+  color: #ffffff;
+}
+.ft16 {
+  font-size: 12px;
+  font-family: Times;
+  color: #ffffff;
+}
+.ft111 {
+  font-size: 14px;
+  font-family: Times;
+  font-weight: bold;
+  color: #2379e0;
+}
+.ft112 {
+  font-size: 12px;
+  font-family: Times;
+  font-weight: 500;
+  color: #2379e0;
+}
+.ft113 {
+  font-size: 11px;
+  font-family: Times;
+  font-weight: bold;
+  color: #2379e0;
+}
+.ft132 {
+  font-size: 5px;
+  line-height: 8px;
+  font-family: Times;
+  /* font-weight: 100; */
+  color: #000000;
+}
+.ft125 {
+  font-size: 9.5px;
+  font-family: Times;
+  /* font-weight: bold; */
+  color: #ff0000;
+}
+.ft115 {
+  font-size: 10px;
+  font-family: Times;
+  font-weight: bold;
+  color: #ffffff;
+}
+.ft114 {
+  font-size: 10px;
+  /* font-family: Times; */
+  font-weight: 500;
+  color: #000000;
+}
+.ft120 {
+  font-size: 13px;
+  font-family: Times;
+  font-weight: bold;
+  color: #2379e0;
+}
+.ft121 {
+  font-size: 10px;
+  font-family: Times;
+  color: #2379e0;
+}
+.ft122 {
+  font-size: 10px;
+  font-family: Times;
+  font-weight: 900;
+  color: #2379e0;
+}
+.ft15 {
+  font-size: 10px;
+  /* font-family: Times; */
+  font-weight: bold;
+  color: #000000;
+}
+.ft117 {
+  font-size: 8px;
+  font-family: Times;
+  letter-spacing: 0.5px;
+  /* font-weight: 500; */
+  color: #ffffff;
+}
+.ft14 {
+  font-size: 11px;
+  font-family: Times;
+  color: #ffffff;
+}
+.ft123 {
+  font-size: 14px;
+  font-family: Times;
+  font-weight: bold;
+  color: #000000;
+}
+.ft10 {
+  font-size: 12px;
+  /* font-family: Times; */
+  /* font-weight: 500; */
+  color: #000000;
+}
+.ft134 {
+  font-size: 11px;
+  line-height: 16px;
+  /* font-family: Times; */
+  color: #000000;
+}
+.ft116 {
+  font-size: 10px;
+  font-family: Times;
+  font-weight: bold;
+  color: #ffffff;
+}
+.ft118 {
+  font-size: 9px;
+  font-family: Times;
+  /* font-weight: 500; */
+  color: #000000;
+}
+.ft119 {
+  font-size: 9px;
+  font-family: Times;
+  /* font-weight: 500; */
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+.ft124 {
+  font-size: 10px;
+   /* font-family: Times; */
+  color: #000000;
+}
+.ft13 {
+  font-size: 10px;
+   /* font-family: Times; */
+  color: #000000;
+}
+.ft12 {
+  font-size: 12px;
+  font-family: Times;
+  font-weight: bold;
+  color: #000000;
+}
+.ft11 {
+  font-size: 9px;
+  font-family: Times;
+  color: #000000;
+}
+.ft128 {
+  font-size: 10px;
+  line-height: 20px;
+  font-family: Times;
+  color: #000000;
+}
+.ft18 {
+  font-size: 12px;
+  font-family: Times;
+  color: #000000;
+}
+.ft135 {
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 20px;
+   /* font-family: Times; */
+  color: #000000;
+}
+.ft136 {
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 22px;
+   /* font-family: Times; */
+  color: #000000;
+}
+.ft130 {
+  font-size: 10px;
+  line-height: 17px;
+  font-family: Times;
+  color: #000000;
+}

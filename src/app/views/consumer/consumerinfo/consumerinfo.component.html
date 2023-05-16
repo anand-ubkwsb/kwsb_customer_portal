@@ -1,0 +1,80 @@
+<div class="bg-light min-vh-100 d-flex flex-row">
+    <c-container>
+      <c-row class="justify-content-center">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <div class="container">
+                <form cForm  [formGroup]="consumerInfoParams" (ngSubmit)="GetConsumerInfo()">
+                  <c-row >
+                      <c-col sm="5" >
+                          <div class="form-group">
+                              <label for="cons_type">Consumer Type</label>
+                              <select #selectType  id="cons_type"  required aria-label="Default select example" cSelect formControlName="cons_type" name="cons_type" class="selector">
+                                  <option value="" selected disabled hidden>Select Type</option>
+                                  <option value="retail" >Retail</option>
+                                  <option value="bulk" >Bulk</option>
+                                </select>
+                            </div>
+                      </c-col>
+                      <c-col sm="5">
+                          <div class="form-group" >
+                              <label for="cons_no">Consumer Number</label>
+                              <input
+                              autoComplete="cons_no"
+                              cFormControl
+                              id="cons_no"
+                              formControlName="cons_no"
+                              name="cons_no"
+                              type="text"
+                              required
+                            />
+                          </div>
+                      </c-col>
+                      <c-col sm="2">
+                          <div class="form-group my-3" style="display: flex; flex-direction: row; justify-content: center; align-items: center;" >
+                              <button  class="btn btn-primary primary_color" type="submit">Submit</button>
+                          </div>
+                      </c-col>
+              </c-row>
+          </form>
+        
+                  <div class="mat-elevation-z8">
+                    <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+                      <ng-container matColumnDef="unit_id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>UNIT ID</th>
+                        <td mat-cell *matCellDef="let consumerInfo">{{ consumerInfo.unit_id }}</td>
+                      </ng-container>
+                
+                      <ng-container matColumnDef="category">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>CATEGORY</th>
+                        <td mat-cell *matCellDef="let consumerInfo">
+                          {{ consumerInfo.plot_id }}
+                        </td>
+                      </ng-container>
+                
+                      <ng-container matColumnDef="plot_size">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>PLOT SIZE</th>
+                        <td mat-cell *matCellDef="let consumerInfo">{{ consumerInfo.plot_size }}</td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="stories">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>STORIES</th>
+                        <td mat-cell *matCellDef="let consumerInfo">{{ consumerInfo.no_of_stories }}</td>
+                      </ng-container>
+  
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+                    </table>
+                    <div>
+                      <h4 class="errorMessage">{{error}}</h4>
+                    </div>
+                  </div>
+                </div>    
+          </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-row>
+    </c-container>
+  </div>
+  

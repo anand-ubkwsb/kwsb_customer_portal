@@ -1,0 +1,162 @@
+<div class="bg-light min-vh-100 d-flex flex-row">
+    <c-container>
+      <c-row class="justify-content-center">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form cForm [formGroup]="addComplaintParams" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: column; align-items: center;">
+                <c-col sm="6">
+                    <div class="form-group py-2">
+                        <label for="cons_no">Select Consumer</label>
+                        <select
+                        [class.is-invalid]="
+                        addComplaintParams.get('cons_no').errors &&
+                        addComplaintParams.get('cons_no').touched"
+                        autocomplete="cons_no"
+                        #consNo
+                          id="cons_no"
+                          required
+                          aria-label="Default select example"
+                          cSelect
+                          formControlName="cons_no"
+                          name="cons_no"
+                          class="selector"
+                          (change)="onSelectConsumerNumber(consNo.value)"
+                        >
+                          <option value="" selected disabled hidden>
+                            Select Type
+                          </option>
+                          <option *ngFor="let item of complaintConsumerNo" [value]="item.cons_no" >
+                            {{ item.cons_no }}
+                          </option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="addComplaintParams.get('cons_no').hasError('required')" > 
+                          Please Select Consumer Number
+                      </div>
+                      </div>
+                    <div class="form-group py-2">
+                        <label for="complaint_type_id">Select Type</label>
+                        <select
+                        [class.is-invalid]="
+                        addComplaintParams.get('complaint_type_id').errors &&
+                        addComplaintParams.get('complaint_type_id').touched"
+                        autocomplete="complaint_type_id"
+                          id="complaint_type_id"
+                          required
+                          aria-label="Default select example"
+                          cSelect
+                          formControlName="complaint_type_id"
+                          name="complaint_type_id"
+                          class="selector"
+                        >
+                          <option value="" selected disabled hidden>
+                            Select Type
+                          </option>
+                          <option *ngFor="let item of complaintType" [value]="item.complaint_type_id">
+                            {{ item.complaint_type_description }}
+                          </option>
+                        </select>
+                        <div class="invalid-feedback" *ngIf="addComplaintParams.get('complaint_type_id').hasError('required')" > 
+                          Please Select Type
+                      </div>
+                      </div>
+                  <div class="form-group py-2">
+                    <label for="complaint_question_id">Select Question</label>
+                    <select
+                    [class.is-invalid]="
+                    addComplaintParams.get('complaint_question_id').errors &&
+                    addComplaintParams.get('complaint_question_id').touched"
+                    autocomplete="complaint_question_id"
+                      id="complaint_question_id"
+                      required
+                      aria-label="Default select example"
+                      cSelect
+                      formControlName="complaint_question_id"
+                      name="complaint_question_id"
+                      class="selector"
+                    >
+                      <option value="" selected disabled hidden>
+                        Select Type
+                      </option>
+                      <option *ngFor="let item of complaintQuestions" [value]="item.question_id">
+                        {{ item.question_description }}
+                      </option>
+                    </select>
+                    <div class="invalid-feedback" *ngIf="addComplaintParams.get('complaint_question_id').hasError('required')" > 
+                      Please Select Question
+                  </div>
+                  </div>
+                </c-col>
+                <c-col sm="6">
+                  <div class="form-group py-2">
+                    <label for="complaint_priority_id">Select Priority</label>
+                    <select
+                    [class.is-invalid]="
+                    addComplaintParams.get('complaint_priority_id').errors &&
+                    addComplaintParams.get('complaint_priority_id').touched"
+                    autocomplete="complaint_priority_id"
+                      id="complaint_priority_id"
+                      required
+                      aria-label="Default select example"
+                      cSelect
+                      formControlName="complaint_priority_id"
+                      name="complaint_priority_id"
+                      class="selector"
+                    >
+                      <option value="" selected disabled hidden>
+                        Select Type
+                      </option>
+                      <option *ngFor="let item of complaintPriority" [value]="item.priority_id">
+                        {{ item.priority_name }}
+                      </option>
+                    </select>
+                    <div class="invalid-feedback" *ngIf="addComplaintParams.get('complaint_priority_id').hasError('required')" > 
+                      Please Select Priority
+                  </div>
+                  </div>
+                  <div class="form-group py-2">
+                    <label for="complaint_remarks">Consumer Remarks</label>
+                    <textarea
+                    [class.is-invalid]="addComplaintParams.get('complaint_remarks').errors && addComplaintParams.get('complaint_remarks').touched "
+                    required
+                      autoComplete="complaint_remarks"
+                      cFormControl
+                      id="complaint_remarks"
+                      formControlName="complaint_remarks"
+                      name="complaint_remarks"
+                      type="text"
+                      required
+                    ></textarea>
+                    <div class="invalid-feedback" *ngIf="addComplaintParams.get('complaint_remarks').hasError('required')" > 
+                      Please Enter Consumer Remarks
+                  </div>
+                  </div>
+                </c-col>
+                <!-- <c-col sm="6">
+                  <div class="form-group py-2">
+                    <label for="consumer_email">Consumer Email</label>
+                    <input
+                      autoComplete="consumer_email"
+                      cFormControl
+                      id="consumer_email"
+                      formControlName="consumer_email"
+                      name="consumer_email"
+                      type="email"
+                      required
+                    />
+                  </div>
+                </c-col> -->
+                <c-col sm="6">
+                      <button [disabled]="!addComplaintParams.valid" class="btn btn-primary primary_color w-100 my-2" type="submit">Submit</button>
+                </c-col>
+              </form>
+              <div>
+                <h4 class="errorMessage">{{error}}</h4>
+              </div>
+            </c-card-body>
+          </c-card>
+        </c-card-group>
+      </c-row>
+    </c-container>
+  </div>
+  

@@ -1,0 +1,81 @@
+<div class="bg-light min-vh-100 d-flex flex-row">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-card-group>
+        <c-card class="p-4">
+          <c-card-body>
+              <c-col sm="6">
+                <div class="py-2">
+                  <label for="inputCons_Type">Consumer Type</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputCons_Type"
+                    [value]="accountInfo.cons_type"
+                  />
+                </div>
+              </c-col>
+              <c-col sm="6">
+                <div class="py-2">
+                  <label for="inputCons_No">Consumer Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputCons_No"
+                    [value]="accountInfo.cons_no"
+                  />
+                </div>
+              </c-col>
+              <c-col sm="6">
+                <div class="py-2">
+                  <label for="inputUsername">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputUsername"
+                    [value]="accountInfo.first_name + accountInfo.last_name"
+                  />
+                </div>
+              </c-col>
+              <c-col sm="6">
+                <div class="py-2">
+                  <label for="inputEmail">Email</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputEmail"
+                    [value]="accountInfo.email"
+                  />
+                </div>
+              </c-col>
+              <c-col sm="6">
+                <div class="py-2">
+                  <label for="inputMobile_No">Mobile Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputMobile_No"
+                    [value]="accountInfo.mobile_no"
+                  />
+                </div>
+              </c-col>
+              <c-col sm="6">
+                <div class="py-2">
+                  <label for="inputAddress">Address</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputAddress"
+                    [value]="accountInfo.address"
+                  />
+                </div>
+              </c-col>
+              <div>
+                <h4 class="errorMessage">{{error}}</h4>
+              </div>
+          </c-card-body>
+        </c-card>
+      </c-card-group>
+    </c-row>
+  </c-container>
+</div>

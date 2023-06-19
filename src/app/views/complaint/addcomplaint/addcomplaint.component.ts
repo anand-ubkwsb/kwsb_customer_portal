@@ -36,6 +36,7 @@ export class AddcomplaintComponent implements OnInit {
   complaintTown: any = [];
   complaintConsumerNo: any = [];
   error = ""
+  success = ""
 
   intializeForm() {
     this.userParam = new FormGroup({
@@ -227,6 +228,7 @@ export class AddcomplaintComponent implements OnInit {
     setTimeout(() => {
           this._complaintService.addComplaint(params).subscribe((data) => {
       if (data && data.status === true) {
+        this.success = "Complaint Added Successfully"
         console.log(data);
       } else {
         console.error('Error', data.message);

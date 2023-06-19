@@ -18,7 +18,13 @@ interface IUser {
 }
 
 @Component({
-  template: '<div></div>',
+  template: `
+  <div class="card">
+  <div class="card-body p-5 text-center" style="background-color: #0f69fa;">
+  <h1 style=" font-size:50px; font-family:Ubuntu; color:#fff;" >WELCOME TO KWSB CONSUMER PORTAL</h1>
+</div>
+</div>
+  `,
   styleUrls: ['dashboard.component.scss']
 })
 // templateUrl: 'dashboard.component.html',

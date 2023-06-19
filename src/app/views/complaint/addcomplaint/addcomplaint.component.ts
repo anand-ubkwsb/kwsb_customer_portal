@@ -218,6 +218,12 @@ export class AddcomplaintComponent implements OnInit {
     params.cons_type = this.consType;
     params.complaint_town_id = this.TownId;
     params.complaint_date = this.datepipe.transform(new Date(), 'dd-MM-YYYY');
+
+    if(this.addComplaintParams.controls['complaint_remarks'].value.length == 0){
+      this.error = "Please fill all the fields"
+      return
+    }
+
     setTimeout(() => {
           this._complaintService.addComplaint(params).subscribe((data) => {
       if (data && data.status === true) {

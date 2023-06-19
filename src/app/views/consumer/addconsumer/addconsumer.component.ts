@@ -28,9 +28,13 @@ export class AddconsumerComponent implements OnInit {
   onSubmit(){
     this.error = ""
     // console.log('Add Consumer: ', this.addConsumerParam.value)
+    if(this.addConsumerParam.controls['cons_no'].value.length == 0){
+      this.error = "Please add consumer number"
+      return
+    }
     this._consumerService.addConsumer(this.addConsumerParam.value).subscribe((data) => {
       if(data && data.status === true){
-        console.log("this.addConsumer", data)
+        console.log("addConsumer", data)
       }else{
         console.error('Error', data.message);
         this.error = data.message

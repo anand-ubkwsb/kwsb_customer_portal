@@ -16,6 +16,7 @@ export class AddconsumerComponent implements OnInit {
 
   addConsumerParam: FormGroup;
   error = ""
+  success = ""
 
   intializeForm() {
     this.addConsumerParam = new FormGroup({
@@ -34,6 +35,7 @@ export class AddconsumerComponent implements OnInit {
     }
     this._consumerService.addConsumer(this.addConsumerParam.value).subscribe((data) => {
       if(data && data.status === true){
+        this.success = "Consumer Added Successfully"
         console.log("addConsumer", data)
       }else{
         console.error('Error', data.message);
